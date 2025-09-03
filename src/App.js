@@ -23,30 +23,38 @@ function App() {
 
   return (
     <>
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo"></div>
-        <div className="nav-links">
-          {['home', 'about', 'projects','education', 'skills','experience', 'contact'].map((section) => (
-            <Link
-              key={section}
-              to={section}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className="nav-link"
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </Link>
-          ))}
-<button className={`toggle-glow-btn ${darkMode ? 'dark' : 'light'}`} onClick={() => setDarkMode(!darkMode)}>
-  <span className="icon">{darkMode ? '☀️' : '🌙'}</span>
-</button>
+{/* Navbar */}
+<nav className="navbar">
+  <div className="logo">Kalyan Portfolio</div>
 
+  {/* Desktop menu + toggle */}
+  <div className="nav-actions">
+    <div className="nav-links">
+      {['home', 'about', 'projects','education', 'skills','experience','contact'].map((section) => (
+        <Link
+          key={section}
+          to={section}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="nav-link"
+        >
+          {section.charAt(0).toUpperCase() + section.slice(1)}
+        </Link>
+      ))}
+    </div>
 
-        </div>
-      </nav>
+    {/* Toggle button visible on both desktop & mobile */}
+    <button 
+      className={`toggle-glow-btn ${darkMode ? 'dark' : 'light'}`} 
+      onClick={() => setDarkMode(!darkMode)}
+    >
+      <span className="icon">{darkMode ? '☀️' : '🌙'}</span>
+    </button>
+  </div>
+</nav>
+
 
       {/* Hero Section */}
       <Element name="home" className="section hero">

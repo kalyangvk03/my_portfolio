@@ -139,39 +139,55 @@ body.dark-mode .footer {
 }
 
 
-/* ==== NAVBAR ==== */
+/* Navbar layout */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-
-  top: 0;
-  z-index: 999;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #3b3b3b;
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
+/* Nav links */
 .nav-links {
   display: flex;
   gap: 1.5rem;
 }
-
 .nav-link {
-  color: #333;
-  font-weight: 600;
-  cursor: pointer;
-  text-transform: capitalize;
-  transition: color 0.3s;
+  position: relative;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  transition: 0.3s;
 }
-
 .nav-link:hover {
   color: #0077ff;
 }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; left: 50%;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #0077ff, #00ffd5, #ff00e1);
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link:hover::after { width: 100%; }
+.nav-link.active::after { width: 100%; }
+
 .toggle-glow-btn {
   width: 30px;
   height: 30px;
