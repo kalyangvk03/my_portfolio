@@ -56,7 +56,10 @@ function App() {
             Hello, I'm <span className="highlight">Kalyan</span>
           </h1>
           <p>Java | React | MySQL | Spring Boot | Cloud</p>
-          <a href={pdf} download className="btn">Download Resume</a>
+         <a href={pdf} target="_blank" rel="noopener noreferrer" className="btn">
+  View Resume
+</a>
+
         </div>
       </Element>
 
